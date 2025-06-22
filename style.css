@@ -1,0 +1,99 @@
+/* CSS pour les boutons de filtre personnalisés */
+
+/* Masquer les filtres originaux de YouTube */
+#chips-wrapper,
+ytd-feed-filter-chip-bar-renderer,
+#chips {
+    display: none !important;
+}
+
+/* Masquer les boutons indésirables */
+button[aria-label*="Télécharger"],
+button[aria-label*="Download"],
+.download-button,
+ytd-download-button-renderer,
+#download-button,
+button[aria-label*="Créer"],
+button[aria-label*="Create"],
+ytd-topbar-menu-button-renderer[data-button-renderer="create"],
+#create-button,
+[aria-label="Créer"],
+[aria-label="Create"] {
+    display: none !important;
+}
+
+/* Réduire la hauteur du frosted-glass qui cache les boutons */
+#frosted-glass.with-chipbar {
+    height: 50px !important;
+}
+
+/* Styles pour le conteneur des boutons personnalisés */
+.custom-filter-buttons {
+    display: flex !important;
+    gap: 8px !important;
+    padding: 12px 24px !important;
+    background: var(--yt-spec-base-background) !important;
+    border-bottom: 1px solid var(--yt-spec-10-percent-layer) !important;
+    position: sticky !important;
+    top: 56px !important;
+    z-index: 101 !important;
+}
+
+/* Styles pour les boutons personnalisés */
+.custom-filter-btn {
+    padding: 8px 16px !important;
+    border: 1px solid var(--yt-spec-10-percent-layer) !important;
+    border-radius: 18px !important;
+    background: transparent !important;
+    color: var(--yt-spec-text-primary) !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    font-family: "Roboto", sans-serif !important;
+    min-width: 60px !important;
+}
+
+/* Bouton actif */
+.custom-filter-btn[data-filter="tout"].active,
+.custom-filter-btn[data-filter="video"].active,
+.custom-filter-btn[data-filter="short"].active {
+    background: var(--yt-spec-text-primary) !important;
+    color: var(--yt-spec-base-background) !important;
+}
+
+/* Effets hover */
+.custom-filter-btn:hover {
+    background: var(--yt-spec-10-percent-layer) !important;
+    border-color: var(--yt-spec-20-percent-layer) !important;
+}
+
+.custom-filter-btn:hover[data-filter="tout"].active,
+.custom-filter-btn:hover[data-filter="video"].active,
+.custom-filter-btn:hover[data-filter="short"].active {
+    background: var(--yt-spec-text-secondary) !important;
+}
+
+/* Mode sombre */
+[dark] .custom-filter-buttons {
+    background: var(--yt-spec-base-background) !important;
+    border-bottom-color: var(--yt-spec-10-percent-layer) !important;
+}
+
+[dark] .custom-filter-btn {
+    border-color: var(--yt-spec-10-percent-layer) !important;
+    color: var(--yt-spec-text-primary) !important;
+}
+
+[dark] .custom-filter-btn:hover {
+    background: var(--yt-spec-10-percent-layer) !important;
+}
+
+/* Animation de transition pour les éléments cachés/affichés */
+ytd-video-renderer,
+ytd-grid-video-renderer,
+ytd-compact-video-renderer,
+ytd-rich-grid-slim-media-renderer,
+ytd-reel-item-renderer {
+    transition: opacity 0.3s ease, transform 0.3s ease !important;
+}
